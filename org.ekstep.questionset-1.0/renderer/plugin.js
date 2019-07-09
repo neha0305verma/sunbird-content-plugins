@@ -200,7 +200,11 @@ org.ekstep.questionsetRenderer = IteratorPlugin.extend({ // eslint-disable-line 
                         if (instance._questionSetConfig.show_feedback == true) {
                             // Display feedback popup (tryagain or goodjob)
                             // result.pass is added to handle sorting-template(Custom IEvaluator) issue. This can be generic solution for other
-                            instance.displayFeedback(result);
+                            if (instance._currentQuestion.pluginId === "org.ekstep.questionunit.survey" || instance._currentQuestion.pluginId === "org.ekstep.questionunit.feedback") {
+                                instance.renderNextQuestion();
+                            } else {
+                                instance.displayFeedback(result);
+                            }
                         } else {
                             // If show_feedback is set to false, move to next question without displaying feedback popup
                             instance.renderNextQuestion();
@@ -238,8 +242,10 @@ org.ekstep.questionsetRenderer = IteratorPlugin.extend({ // eslint-disable-line 
         if (!isFinite(a)) return 0;
         var e = 1,
             p = 0;
-        while (Math.round(a * e) / e !== a) { e *= 10;
-            p++; }
+        while (Math.round(a * e) / e !== a) {
+            e *= 10;
+            p++;
+        }
         return p;
     },
     renderNextQuestion: function() {

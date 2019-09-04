@@ -1,0 +1,53 @@
+<div ng-controller="subjectiveQuestionFormController" ng-init="init()">
+    <div class="ui grid mcqFullGrid">
+        <div class="one column row">
+            <div class="column innerScroll qs-scrollbar">
+                <div>
+                    <form name="subjectiveForm">
+                        <div class="one column row qHeader">
+                            <span>Enter the question</span>
+                        </div>
+                        <div class="outer-segment">
+                            <div class="ui segments inner-segment" ng-class="{cardBorder: $ctrl.focused, 'has-errorCard': submitted && subjectiveForm.question.$error.required}">
+                                <div class="ui segment">
+                                    <div class="ui grid">
+                                        <div class="twelve wide column">
+                                            <div class="form-group segment textBoxDiv questionTextBox">
+                                                <textarea class="form-control textboxQ" ng-class="{'has-success':subjectiveForm.question.$valid, 'has-error': submitted && subjectiveForm.question.$error.required}" placeholder="Enter the question" name="ckedit" ng-model="subjectiveFormData.question.text"
+                                                    ng-init="$ctrl.focused = false" ng-focus="$ctrl.focused = true;" ng-blur="$ctrl.focused = false" ng-required="!(subjectiveFormData.question.text.length || subjectiveFormData.question.image.length || subjectiveFormData.question.audio.length)"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="twelve wide column">
+                                            <selected-media-container media-callbacks="callbacks" class="row" formdata="subjectiveFormData.question" media-type='q' media-index=''></selected-media-container>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui secondary right aligned segment custom-sec-segment">
+                                    <div class="ui grid">
+                                        <div class="one column row segment-column">
+                                            <div class="column right floated">
+                                                <span class="custom-bottom-label">Add: </span>
+                                                <span class="custom-bottom-segment ui icon" data-tooltip="{{!subjectiveFormData.question.image ? 'Add Image' : 'Edit Image'}}" data-inverted="" ng-click="addMedia('q','', 'image')">
+                          <i class="image large icon"></i>
+                        </span>
+                                                <span class="custom-bottom-segment ui icon" data-tooltip="{{!subjectiveFormData.question.audio ? 'Add Audio' : 'Edit Audio'}}" data-tooltip="Add audio" data-inverted="" ng-click="addMedia('q','', 'audio')">
+                          <i class="music large icon"></i>
+                        </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="one column row qHeader" ng-if="subjectiveFormData.options.length > 0">
+                            <span></span>
+                        </div>
+
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

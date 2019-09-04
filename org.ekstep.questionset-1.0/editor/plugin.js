@@ -29,50 +29,69 @@ org.ekstep.questionset.EditorPlugin = org.ekstep.contenteditor.basePlugin.extend
         var publishedDate = new Date().getTime();
         ecEditor.loadAndInitPlugin(instance._dependencyPlugin, "1.0", publishedDate);
         //Loading question unit plugins(MCQ,FTB and MTF) which all having target id 'org.ekstep.questionset'
-        this.loadQSPlugins();
+        //this.loadQSPlugins();
         //Get loaded plugins
         ecEditor.addEventListener(this.manifest.id + ":getPlugins", this.getplugins, this);
 
         ecEditor.addEventListener(instance.manifest.id + ":showPopup", instance.openQuestionBank, instance);
         ecEditor.addEventListener(instance.manifest.id + ":addQS", instance.addQS, instance);
-        // var pluginsData = [
-        //   {
-        //     "identifier": "org.ekstep.questionunit.mtf",
-        //     "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/mtf_app_icon.jpg'),
-        //     "semanticVersion": "1.2",
-        //     "contentType": "Plugin",
-        //     "objectType": "Content"
-        //   },
-        //   {
-        //     "identifier": "org.ekstep.questionunit.mcq",
-        //     "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/mcq_app_icon.jpg'),
-        //     "semanticVersion": "1.2",
-        //     "contentType": "Plugin",
-        //     "objectType": "Content"
-        //   },
-        //   {
-        //     "identifier": "org.ekstep.questionunit.ftb",
-        //     "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/ftb_app_icon.jpg'),
-        //     "semanticVersion": "1.1",
-        //     "contentType": "Plugin",
-        //     "objectType": "Content"
-        //   },
-        //   {
-        //     "identifier": "org.ekstep.questionunit.reorder",
-        //     "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/reorder_app_icon.jpg'),
-        //     "semanticVersion": "1.1",
-        //     "contentType": "Plugin",
-        //     "objectType": "Content"
-        //   },
-        //   {
-        //     "identifier": "org.ekstep.questionunit.sequence",
-        //     "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/sequence_app_icon.jpg'),
-        //     "semanticVersion": "1.1",
-        //     "contentType": "Plugin",
-        //     "objectType": "Content"
-        //   }
-        // ];
-        // instance.pluginsRespHandler(pluginsData);
+        var pluginsData = [{
+                "identifier": "org.ekstep.questionunit.mtf",
+                "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/mtf_app_icon.jpg'),
+                "semanticVersion": "1.2",
+                "contentType": "Plugin",
+                "objectType": "Content"
+            },
+            {
+                "identifier": "org.ekstep.questionunit.mcq",
+                "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/mcq_app_icon.jpg'),
+                "semanticVersion": "1.2",
+                "contentType": "Plugin",
+                "objectType": "Content"
+            },
+            {
+                "identifier": "org.ekstep.questionunit.ftb",
+                "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/ftb_app_icon.jpg'),
+                "semanticVersion": "1.1",
+                "contentType": "Plugin",
+                "objectType": "Content"
+            },
+            {
+                "identifier": "org.ekstep.questionunit.reorder",
+                "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/reorder_app_icon.jpg'),
+                "semanticVersion": "1.1",
+                "contentType": "Plugin",
+                "objectType": "Content"
+            },
+            {
+                "identifier": "org.ekstep.questionunit.sequence",
+                "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/sequence.png'),
+                "semanticVersion": "1.1",
+                "contentType": "Plugin",
+                "objectType": "Content"
+            }, {
+                'identifier': 'org.ekstep.questionunit.survey',
+                'appIcon': ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/survey.png'),
+                'semanticVersion': '1.0',
+                'contentType': 'Plugin',
+                'objectType': 'Content'
+            },
+            {
+                'identifier': 'org.ekstep.questionunit.feedback',
+                'appIcon': ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/feedback.png'),
+                'semanticVersion': '1.0',
+                'contentType': 'Plugin',
+                'objectType': 'Content'
+            },
+            {
+                "identifier": "org.ekstep.questionunit.subjective",
+                "appIcon": ecEditor.resolvePluginResource(this.manifest.id, this.manifest.ver, 'editor/assets/subjective.png'),
+                "semanticVersion": "1.0",
+                "contentType": "Plugin",
+                "objectType": "Content"
+            }
+        ];
+        instance.pluginsRespHandler(pluginsData);
     },
     newInstance: function() {
         var instance = this;

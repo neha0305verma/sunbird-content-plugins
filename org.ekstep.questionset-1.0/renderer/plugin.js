@@ -200,7 +200,8 @@ org.ekstep.questionsetRenderer = IteratorPlugin.extend({ // eslint-disable-line 
                         if (instance._questionSetConfig.show_feedback == true) {
                             // Display feedback popup (tryagain or goodjob)
                             // result.pass is added to handle sorting-template(Custom IEvaluator) issue. This can be generic solution for other
-                            if (instance._currentQuestion.pluginId === "org.ekstep.questionunit.survey" || instance._currentQuestion.pluginId === "org.ekstep.questionunit.feedback") {
+                            debugger;
+                            if (instance._currentQuestion.pluginId === "org.ekstep.questionunit.survey" || instance._currentQuestion.pluginId === "org.ekstep.questionunit.feedback" || instance._currentQuestion.pluginId === "org.ekstep.questionunit.subjective") {
                                 instance.renderNextQuestion();
                             } else {
                                 instance.displayFeedback(result);
